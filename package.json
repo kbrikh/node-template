@@ -1,0 +1,46 @@
+{
+    "name": "",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "scripts": {
+        "start": "node .",
+        "watch": "nodemon .",
+        "test": "npm run test:jasmine",
+        "test:watch": "watch 'npm run test:jasmine' ./app.js ./src ./spec/tests",
+        "test:jasmine-init": "./node_modules/.bin/jasmine init",
+        "test:jasmine": "./node_modules/.bin/jasmine; exit 0",
+        "lint": "eslint ./app.js ./src ./spec/tests"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jasmine": "^3.5.14",
+        "@types/node": "^14.11.2",
+        "eslint": "^7.10.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "husky": "^4.3.0",
+        "jasmine": "^3.6.1",
+        "jasmine-spec-reporter": "^6.0.0",
+        "nodemon": "^2.0.4",
+        "watch": "^1.0.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint",
+            "pre-merge": "npm run lint && npm test"
+        }
+    },
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.10.7"
+    }
+}
